@@ -1,0 +1,533 @@
+/* Configurações básicas */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.container {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: #e53935; /* Vermelho principal */
+}
+
+section {
+    padding: 15px 0;
+}
+
+/* Header */
+.header {
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 64px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-menu li {
+    margin-left: 25px;
+    position: relative;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+    padding: 5px 0;
+    display: block;
+}
+
+.nav-menu a:hover {
+    color: #e53935;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-top: 3px solid #e53935;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: normal;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.header-tools .fas {
+    font-size: 1.2em;
+    color: #e53935;
+}
+
+/* Carrossel */
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-item {
+    display: none;
+    width: 100%;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-item img {
+    width: 100%;
+    display: block;
+    height: 400px;
+    object-fit: cover;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 2em;
+    z-index: 10;
+}
+
+.carousel-control.prev { left: 10px; }
+.carousel-control.next { right: 10px; }
+
+/* Quem Somos */
+.section-who-we-are {
+    background-color: #fff;
+}
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.about-text {
+    flex: 1;
+}
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+.about-image img {
+    max-width: 50%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Produtos (Categorias) */
+.product-categories {
+    display: flex;
+    justify-content: center;/* CSS Adicionado */
+    .section-products .category-card img {
+        height: 180px; /* Defina a altura desejada */
+        width: 100%;   /* Faz a imagem ocupar toda a largura do card */
+        object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    }
+    
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+.category-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    min-width: 180px;
+}
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.category-card img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border-radius: 6px;
+}
+.category-card h3 {
+    color: #e53935;
+}
+
+/* Receitas e Notícias */
+.recipe-grid, .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.recipe-card, .news-post {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.recipe-card:hover, .news-post:hover {
+    transform: translateY(-10px);
+}
+
+.recipe-card img, .news-post img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.recipe-card h3, .news-post h3 {
+    color: #e53935;
+    padding: 15px 15px 0;
+    margin: 0;
+}
+
+.recipe-card p, .news-post p {
+    padding: 0 15px 15px;
+}
+
+.btn-link, .news-post a {
+    display: inline-block;
+    padding: 0 15px 15px;
+    color: #e53935;
+    font-weight: bold;
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+}
+
+.btn-link:hover, .news-post a:hover {
+    text-decoration: underline;
+}
+
+/* Botão de Download */
+.section-download {
+    background-color: #f0f0f0;
+    text-align: center;
+}
+.btn-download {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #e53935;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-download:hover {
+    background-color: #c62828;
+}
+
+/* Rodapé */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.footer-col h4 {
+    border-bottom: 2px solid #e53935;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.footer-col p, .footer-col ul {
+    font-size: 0.9em;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col li {
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col a:hover {
+    color: #e53935;
+}
+
+.social-icons a {
+    font-size: 1.5em;
+    margin-right: 15px;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #e53935;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #555;
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+/* Melhorias no menu dropdown (comportamento mobile) */
+.dropdown > a {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Conteúdo do dropdown padrão (desktop) já está definido.
+   Para mobile vamos permitir toggle via JS usando a classe .show */
+.dropdown-content.show {
+    display: block !important;
+}
+
+/* Ajustes responsivos adicionais para nav/menu */
+@media (max-width: 600px) {
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .nav-menu li {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .nav-menu a {
+        padding: 10px 8px;
+    }
+
+    /* Tornar dropdown-content estático em mobile */
+    .dropdown-content {
+        position: static;
+        background-color: #fff;
+        box-shadow: none;
+        border-top: 0;
+        display: none;
+        padding-left: 12px;
+    }
+
+    .dropdown > a .fa-caret-down {
+        transition: transform 0.2s;
+    }
+    .dropdown.open > a .fa-caret-down {
+        transform: rotate(180deg);
+    }
+}
+
+/* Pequeno ajuste visual para os cards de produto */
+.product-categories {
+    align-items: stretch;
+}
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    min-width: 180px;
+}
+.category-card img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border-radius: 6px;
+}
+
+/* Ajustes visuais para Receitas */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+.recipe-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.recipe-card h3 {
+    margin: 16px;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+.recipe-card p {
+    margin: 0 16px 16px 16px;
+    color: #555;
+    flex: 1 0 auto;
+}
+
+.btn-link {
+    margin: 12px 16px 20px 16px;
+    background: transparent;
+    color: #e53935;
+    border: 1px solid #e53935;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-link:hover {
+    background: #e53935;
+    color: #fff;
+}
+
+/* Modal de receita */
+.recipe-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    padding: 20px;
+}
+
+.recipe-modal.open {
+    display: flex;
+}
+
+.recipe-modal .modal-content {
+    background: #fff;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 8px;
+    overflow: auto;
+    max-height: 90vh;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+.recipe-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.recipe-modal .modal-body {
+    padding: 20px;
+    color: #333;
+    line-height: 1.55;
+}
+
+.recipe-modal .modal-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.recipe-modal .close-modal {
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .recipe-card img { height: 140px; }
+    .recipe-modal .modal-content { width: 100%; margin: 0 6px; }
+}
+
+/* Acessibilidade: foco visível para navegação por teclado */
+.nav-menu a:focus, .btn-download:focus, .btn-link:focus {
+    outline: 3px solid rgba(229,57,53,0.18);
+    outline-offset: 2px;
+}

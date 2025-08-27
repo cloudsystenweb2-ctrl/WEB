@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frango Americano - Qualidade e Sabor na sua Mesa</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dO95DPb9DZZr0g0Lwbbg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Aumenta o tamanho das imagens dos produtos */
+        .section-products .category-card img {
+            width: 190px;
+            height: 240px;
+            object-fit: cover; /* Mantém a proporção da imagem sem distorcer */
+        }
+        /* Estilo para a mensagem final da seção "Nossa Marca" */
+        .brand-tagline {
+            margin-top: 1.5em;
+            font-style: italic;
+            font-weight: 500;
+            color: #444;
+            font-size: 1.1em;
+        }
+
+        /* Adiciona interatividade aos cards de produto */
+        .section-products .category-card {
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .section-products .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        /* --- Estilos para o Modal de Produtos --- */
+        .product-modal {
+            display: none; /* Oculto por padrão */
+            position: fixed; /* Fica fixo na tela */
+            z-index: 1000; /* Fica na frente de tudo */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Permite scroll se o conteúdo for grande */
+            background-color: rgba(0,0,0,0.7); /* Fundo preto semi-transparente */
+            padding-top: 50px;
+            animation: fadeIn 0.4s;
+        }
+
+        .product-modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 25px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .product-modal-close {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .product-modal-close:hover,
+        .product-modal-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nutritional-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        .nutritional-table th, .nutritional-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .nutritional-table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/Logo 1.png" alt="Frango Americano" class="logo-img">
+            </a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#quem-somos">Nossa Marca</a></li>
+                    <li class="dropdown">
+                        <a href="#produtos">Produtos <i class="fa-solid fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#frango-inteiro">Frango Inteiro</a>
+                            <a href="#peito">Peito</a>
+                            <a href="#embutidos">Embutidos</a>
+                            <a href="#Peito Desfiado">Peito Desfiado</a>
+                            <a href="#Linguiça Mista">Linguiça Mista</a>
+                        </div>
+                    </li>
+                    <li><a href="#receitas">Receitas</a></li>
+                    <li><a href="#noticias">Notícias</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                </ul>
+            </nav>
+            <div class="header-tools">
+                <a href="#"><i class="fas fa-search"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="section-home">
+        <div class="carousel">
+            <div class="carousel-item active">
+                <img src="images/slide 1.png" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+                <img src="images/slide 2.png" alt="Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="images/slide 3.png" alt="Slide 3">
+            </div>
+            <div class="carousel-item">
+                <img src="images/slide 4.png" alt="Slide 4">
+            </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/slide 5.png" alt="Slide 5">
+            </div>
+            <button class="carousel-control prev">&#10094;</button>
+            <button class="carousel-control next">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="quem-somos" class="section-who-we-are">
+        <div class="container">
+            <h2 class="section-title">Nossa Marca</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Na <strong>Frango Americano</strong>, cada produto conta uma história de dedicação e sabor. Nascida da paixão pela culinária e do desejo de oferecer o melhor, nossa marca se tornou sinônimo de qualidade e confiança, levando tradição e praticidade para a sua cozinha.</p>
+                    <p>Selecionamos rigorosamente cada ingrediente e seguimos processos cuidadosos para garantir que apenas o mais alto padrão de excelência chegue à sua mesa. Nosso compromisso vai além do sabor: é sobre nutrir, inspirar e criar momentos especiais ao redor de uma boa refeição.</p>
+                    <p class="brand-tagline"><strong>Frango Americano: da nossa família para a sua, com o carinho que você merece.</strong></p>
+                </div>
+                <div class="about-image">
+                    <img src="images/Logo 2.png" alt="Imagem da Indústria">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="produtos" class="section-products">
+        <div class="container">
+            <h2 class="section-title">Nossos Produtos</h2>
+            <div class="product-categories">
+                <div class="category-card" data-product-id="frango-inteiro">
+                    <img src="Produtos/Inteiro.png" alt="Frango Inteiro">
+                    <h3>Frango Inteiro</h3>
+                </div>
+                <div class="category-card" data-product-id="peito">
+                    <img src="Produtos/Peito.png" alt="Peito">
+                    <h3>Peito</h3>
+                </div>
+                <div class="category-card" data-product-id="embutidos">
+                    <img src="Produtos/Imbutido.png" alt="Embutidos">
+                    <h3>Embutidos</h3>
+                </div>
+                <div class="category-card" data-product-id="peito-desfiado">
+                    <img src="Produtos/Peito Desfiado.png" alt="Peito Desfiado">
+                    <h3>Peito Desfiado</h3>
+                </div>
+                <div class="category-card" data-product-id="linguica-mista">
+                    <img src="Produtos/Linguiça.png" alt="Linguiça Mista">
+                    <h3>Linguiça Mista</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="receitas" class="section-recipes">
+        <div class="container">
+            <h2 class="section-title">Receitas</h2>
+            <div class="recipe-grid">
+                <div class="recipe-card">
+                    <img src="Receitas/frangocremoso.png" alt="Frango Cremoso com Milho">
+                    <h3>Frango Cremoso com Milho</h3>
+                    <p>Ideal para um jantar rápido e cheio de sabor para a família.</p>
+                    <a href="#" class="btn-link">Ver Receita</a>
+                </div>
+                <div class="recipe-card">
+                    <img src="Receitas/Estrogonofre.png" alt="Estrogonofre">
+                    <h3>Estrogonofre</h3>
+                    <p>Clássico, cremoso e versátil — perfeito com arroz branco e batata palha.</p>
+                    <a href="#" class="btn-link">Ver Receita</a>
+                </div>
+                <div class="recipe-card">
+                    <img src="Receitas/fricasse-de-frango-simples-e-saboroso.jpeg" alt="Fricassê de Frango">
+                    <h3>fricasse de frango</h3>
+                    <p>Cremoso e saboroso, com frango desfiado e milho, gratinado com queijo e batata palha.</p>
+                    <a href="#" class="btn-link">Ver Receita</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="noticias" class="section-news">
+        <div class="container">
+            <h2 class="section-title">Últimas Notícias</h2>
+            <div class="news-grid">
+                <div class="news-post">
+                    <img src="https://via.placeholder.com/400x250/fff?text=Notícia+1" alt="Notícia 1">
+                    <h3>Inauguração da nova linha de produção</h3>
+                    <p>Conheça os avanços tecnológicos que garantem ainda mais qualidade.</p>
+                    <a href="#">Leia mais</a>
+                </div>
+                <div class="news-post">
+                    <img src="https://via.placeholder.com/400x250/fff?text=Notícia+2" alt="Notícia 2">
+                    <h3>Novos produtos chegam ao mercado!</h3>
+                    <p>Descubra a linha de congelados que irá revolucionar sua cozinha.</p>
+                    <a href="#">Leia mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo" class="section-download">
+        <div class="container">
+            <h2 class="section-title">Catálogo</h2>
+            <p>Baixe nosso catálogo completo e tenha acesso a toda a nossa linha de produtos.</p>
+            <a href="#" class="btn-download">Download do Catálogo (PDF)</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Sobre Nós</h4>
+                <p>Levando à sua mesa alimentos que unem sabor, qualidade e segurança, do campo à sua casa.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Mapa do Site</h4>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#quem-somos">Nossa Marca</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#receitas">Receitas</a></li>
+                    <li><a href="#noticias">Notícias</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <p>Telefone: (63) XXXX-XXXX</p>
+                <p>Email: Comercial@frangoamericano.com.br</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Frango Americano. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Informações Nutricionais -->
+    <div id="product-modal" class="product-modal">
+        <div class="product-modal-content">
+            <span class="product-modal-close">&times;</span>
+            <div id="product-modal-body">
+                <!-- O conteúdo será injetado aqui pelo JavaScript -->
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
